@@ -60,6 +60,7 @@ ul {
 
 }
 
+
 #intro-card section:nth-child(1)  {
     margin-top: 60px;
 }
@@ -81,8 +82,19 @@ ul {
     justify-content: space-between;
 }
 
+.title{
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 30px;
 
-#skills-card {
+}
+
+.title  img {
+    width: 35px;
+    margin-left: 10px;
+
+}
+#info-card, #skills-card {
     width: 700px;
     display: flex;
     justify-content: space-evenly;
@@ -93,30 +105,53 @@ ul {
     box-shadow: 0px 10px 15px 5px #41414183;
 }
 
-.skills-intro{
+.info-intro{
     width: 600px;
-    margin-top: 40px;
+
 
 }
-#skills-card section:nth-child(1), #skills-card section:nth-child(3) {
+#info-card section:nth-child(1) a img, #info-card section:nth-child(3) a img, #skills-card section:first-child a img {
     margin-top: 150px;
 }
 
-.skills-intro p {
+.info-intro p {
     width: 450px;
     margin: 0 auto;
     line-height: 20px;
 }
-.skills-intro p:nth-child(2){
+.info-intro p:nth-child(2){
     margin-top: 20px;
 }
-.skills-intro h2 {
+.info-intro h2, .skills-info h2  {
     width: 270px;
     display: block;
-    margin: 0 auto 30px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-top: 5px;
+
+}
+
+
+.skills-info {
+        width: 600px;
+}
+
+.skills-info ul {
+    list-style-type: disc;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.skills-info ul li {
+    line-height: 30px;
+}
+.skills-info ul li a {
+    text-decoration: none;
+}
+
+.skills-info p {
+    font-size: 12px;
 }
 
 .fade {
@@ -127,7 +162,7 @@ ul {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
+  from {opacity: .5}
   to {opacity: 1}
 }
 
