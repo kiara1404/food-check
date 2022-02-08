@@ -1,7 +1,7 @@
 console.log('is this working?')
 
-let cardIndex = 0;
-showCards(cardIndex)
+let cardIndex = 1;
+showCards(cardIndex - 1)
 
 //next en prev controls
 function plusCards(n) {
@@ -10,13 +10,16 @@ function plusCards(n) {
 
 function showCards(n) {
     let i;
-    let cards = document.getElementsByClassName('cards')
+    let cards = document.getElementsByClassName('cards');
+    
     if (n > cards.length) { cardIndex = 1 }
     if (n < 1) { cardIndex = cards.length }
     for (i = 0; i < cards.length; i++) {
         cards[i].style.display = 'none';
     }
+
     cards[cardIndex - 1].style.display = 'flex';
+
 
 }
 
