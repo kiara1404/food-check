@@ -1,6 +1,6 @@
 console.log('are we connected?')
 
-let barcode = '737628064502'
+let barcode = '90162800'
 const endpoint = 'https://world.openfoodfacts.org/api/v0/product/' + barcode + '.json';
 
 
@@ -25,10 +25,10 @@ fetchData(endpoint).then(data => {
         <h1>
         ${data.product['brands']}
         </h1>
-        <img src="${data.product['image_url']}">`
+        <img src="${data.product['image_front_url']}">`
     console.log(data)
     document
-    .querySelector('.app')
+    .querySelector('.wrapper')
     .insertAdjacentHTML('afterbegin', markup )
 })
 
