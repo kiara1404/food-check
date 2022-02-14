@@ -18,10 +18,17 @@ async function fetchData(url) {
 
 }
 
+
+
 fetchData(endpoint).then(data => {
+    const markup =  `
+        <h1>
+        ${data.product['brands']}
+        </h1>
+        <img src="${data.product['image_url']}">`
     console.log(data)
     document
     .querySelector('.app')
-    .insertAdjacentHTML("afterbegin", '<h1>' + data.product['categories'] +'</h1>')
+    .insertAdjacentHTML('afterbegin', markup )
 })
 
