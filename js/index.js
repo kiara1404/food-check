@@ -27,8 +27,8 @@ fetchData(endpoint).then(data => {
         </h1>
         <img src="${data.product['image_front_url']}">`
     console.log(data)
-    document
-    .querySelector('.wrapper')
-    .insertAdjacentHTML('afterbegin', markup )
+    // document
+    // .querySelector('.wrapper')
+    // .insertAdjacentHTML('afterbegin', markup )
 })
 
