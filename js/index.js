@@ -1,7 +1,65 @@
+window.onload = () => {
+    detect();
+};
+
+async function detect() {
+    const barcodeDetector = new BarcodeDetector();
+    const list = document.getElementById('barcode-list');
+    let itemsFound = [];
+    const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'environment' }
+    });
+
+    // video block, feedback for user
+    const video = document.querySelector('video');
+    video.srcObject = mediaStream;
+    video.autoplay = true;
+
+    list.before(video);
+
+    function render() {
+        barcodeDetector
+            .detect(video)
+            .then(barcodes => {
+                barcodes.forEach(barcode => {
+                    if (!itemsFound.includes(barcode.rawValue)) {
+                        itemsFound.push(barcode.rawValue);
+                        const li = document.createElement('li');
+                        li.innerHTML = barcode.rawValue;
+                        list.appendChild(li);
+                        let newBarcode = barcode.rawValue
+                        const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + newBarcode + '.json';
+                        fetchData(API_URL).then(data => {
+                            const markup = `
+                            <h1>
+                            ${data.product['brands']}
+                            </h1>
+                            <img src="${data.product['image_front_url']}">`
+
+                            console.log(data)
+                            document
+                                .querySelector('.wrapper')
+                                .insertAdjacentHTML('afterbegin', markup)
+                        })
+                    }
+                });
+            })
+            .catch(console.error);
+    }
+
+    (function renderLoop() {
+        requestAnimationFrame(renderLoop);
+        render();
+    })();
+}
 
 
-let barcode = '90162800'
-const endpoint = 'https://world.openfoodfacts.org/api/v0/product/' + barcode + '.json';
+// button scanner 
+let buttonScanner = document.getElementById('scan')
+buttonScanner.addEventListener('click', function () { 
+ changeDisplay()
+
+})
 
 // fetch data
 async function fetchData(url) {
@@ -16,29 +74,6 @@ async function fetchData(url) {
 
     }
 }
-
-// button scanner 
-let buttonScanner = document.getElementById('scan')
-buttonScanner.addEventListener('click', function () { 
- changeDisplay()
-    window.onclick = () => {
-        detect();
-    };
- //   get data & render in html
-    fetchData(endpoint).then(data => {
-        const markup = `
-        <h1>
-        ${data.product['brands']}
-        </h1>
-        <img src="${data.product['image_front_url']}">`
-        console.log(data)
-        document
-            .querySelector('.wrapper')
-            .insertAdjacentHTML('afterbegin', markup)
-    })
-
-})
-
 // change display in css -- niet de beste manier maar werkt voor nu --
 function changeDisplay() {
     let buttons = document.querySelector('.btn-primary')
@@ -52,18 +87,6 @@ function changeDisplay() {
     scanner.style.display = 'block'
 }
 
-async function detect() {
-    const barcodeDetector = new BarcodeDetector();
-    const list = document.getElementById("barcodes");
-    let itemsFound = [];
-    const mediaStream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: { ideal: "environment" } }
-    });
 
-    const video = document.createElement("video");
-    video.srcObject = mediaStream;
-    video.autoplay = true;
-    video.videoWidth = "100vw";
-    video.videoHeight = "300px";
 
-}
+// src : https://daily-dev-tips.com/posts/detecting-barcodes-from-the-webcam/
