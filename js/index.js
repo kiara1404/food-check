@@ -1,58 +1,8 @@
-// window.onload = () => {
-//     detect();
-// };
 
-// async function detect() {
-//     const barcodeDetector = new BarcodeDetector();
-
-//     const mediaStream = await navigator.mediaDevices.getUserMedia({
-//         video: { facingMode: 'environment' }
-//     });
-
-//     // video block, feedback for user
-//     const video = document.querySelector('video');
-//     video.srcObject = mediaStream;
-//     video.autoplay = true;
-
-//     list.before(video);
-
-//     function render() {
-//         barcodeDetector
-//             .detect(video)
-//             .then(barcodes => {
-//                 barcodes.forEach(barcode => {
-//                     if (!itemsFound.includes(barcode.rawValue)) {
-//                         itemsFound.push(barcode.rawValue);
-//                         const li = document.createElement('li');
-//                         li.innerHTML = barcode.rawValue;
-//                         list.appendChild(li);
-//                         let newBarcode = barcode.rawValue
-//                         const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + newBarcode + '.json';
-//                         fetchData(API_URL).then(data => {
-//                             const markup = `
-//                             <h1>
-//                             ${data.product['brands']}
-//                             </h1>
-//                             <img src="${data.product['image_front_url']}">`
-
-//                             console.log(data)
-//                             document
-//                                 .querySelector('.scanner')
-//                                 .insertAdjacentHTML('afterbegin', markup)
-//                         })
-//                     }
-//                 });
-//             })
-//             .catch(console.error);
-//     }
-
-//     (function renderLoop() {
-//         requestAnimationFrame(renderLoop);
-//         render();
-//     }()
-//     )
-// }
 (async () => {
+    // addeventlistener (knop) vraag toestemming om camera te gebruiken
+
+    // access camera
     const stream = await navigator.mediaDevices.getUserMedia({
         video: {
             facingMode: {
@@ -64,6 +14,7 @@
     const list = document.getElementById('barcode-list');
     let itemsFound = [];
 
+    // video block ( feedback voor gebruiker)
     const videoEl = document.querySelector("video");
     videoEl.srcObject = stream;
     await videoEl.play();
@@ -72,27 +23,36 @@
     window.setInterval(async () => {
         const barcodes = await barcodeDetector.detect(videoEl);
         barcodes.forEach(barcode => {
-                    if (!itemsFound.includes(barcode.rawValue)) {
-                        itemsFound.push(barcode.rawValue);
-                        const li = document.createElement('li');
-                        li.innerHTML = barcode.rawValue;
-                        list.appendChild(li);
-                        let newBarcode = barcode.rawValue
-                        const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + newBarcode + '.json';
-                        fetchData(API_URL).then(data => {
-                            const markup = `
+            if (!itemsFound.includes(barcode.rawValue)) {
+                itemsFound.push(barcode.rawValue);
+                let newBarcode = barcode.rawValue
+                const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + newBarcode + '.json';
+                fetchData(API_URL).then(data => {
+                    const markup = `
                             <h1>
                             ${data.product['brands']}
                             </h1>
-                            <img src="${data.product['image_front_url']}">`
+                            <section class="img-wrapper">
+                                <img src="${data.product['image_front_url']}">
+                            </section>
+                            <ul>
+                                <h3>Voedingswaarde per 100 gram </h3>
 
-                            console.log(data)
-                            document
-                                .querySelector('.scanner')
-                                .insertAdjacentHTML('afterbegin', markup)
-                        })
-                    }
-                });
+                                <li><span>kcal</span>${data.product['nutriments']['energy-kcal']}</li>
+                                <li><span>koolhydraten</span>${data.product['nutriments']['carbohydrates']}</li>
+                                <li><span>Proteine</span>${data.product['nutriments']['proteins']}</li>
+                                <li><span>Vet</span>${data.product['nutriments']['fat']}</li>
+                            </ul>
+                            
+                            <button> Bewaren </button>`
+
+                    console.log(data)
+                    document
+                        .querySelector('.wrapper')
+                        .insertAdjacentHTML('afterbegin', markup)
+                })
+            }
+        });
     }, 1000)
 })();
 
