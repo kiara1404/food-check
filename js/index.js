@@ -1,27 +1,77 @@
-window.onload = () => {
-    detect();
-};
+// window.onload = () => {
+//     detect();
+// };
 
-async function detect() {
-    const barcodeDetector = new BarcodeDetector();
+// async function detect() {
+//     const barcodeDetector = new BarcodeDetector();
+
+//     const mediaStream = await navigator.mediaDevices.getUserMedia({
+//         video: { facingMode: 'environment' }
+//     });
+
+//     // video block, feedback for user
+//     const video = document.querySelector('video');
+//     video.srcObject = mediaStream;
+//     video.autoplay = true;
+
+//     list.before(video);
+
+//     function render() {
+//         barcodeDetector
+//             .detect(video)
+//             .then(barcodes => {
+//                 barcodes.forEach(barcode => {
+//                     if (!itemsFound.includes(barcode.rawValue)) {
+//                         itemsFound.push(barcode.rawValue);
+//                         const li = document.createElement('li');
+//                         li.innerHTML = barcode.rawValue;
+//                         list.appendChild(li);
+//                         let newBarcode = barcode.rawValue
+//                         const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + newBarcode + '.json';
+//                         fetchData(API_URL).then(data => {
+//                             const markup = `
+//                             <h1>
+//                             ${data.product['brands']}
+//                             </h1>
+//                             <img src="${data.product['image_front_url']}">`
+
+//                             console.log(data)
+//                             document
+//                                 .querySelector('.scanner')
+//                                 .insertAdjacentHTML('afterbegin', markup)
+//                         })
+//                     }
+//                 });
+//             })
+//             .catch(console.error);
+//     }
+
+//     (function renderLoop() {
+//         requestAnimationFrame(renderLoop);
+//         render();
+//     }()
+//     )
+// }
+(async () => {
+    const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: {
+                ideal: "environment"
+            }
+        },
+        audio: false
+    });
     const list = document.getElementById('barcode-list');
     let itemsFound = [];
-    const mediaStream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment' }
-    });
 
-    // video block, feedback for user
-    const video = document.querySelector('video');
-    video.srcObject = mediaStream;
-    video.autoplay = true;
+    const videoEl = document.querySelector("video");
+    videoEl.srcObject = stream;
+    await videoEl.play();
 
-    list.before(video);
-
-    function render() {
-        barcodeDetector
-            .detect(video)
-            .then(barcodes => {
-                barcodes.forEach(barcode => {
+    const barcodeDetector = new BarcodeDetector();
+    window.setInterval(async () => {
+        const barcodes = await barcodeDetector.detect(videoEl);
+        barcodes.forEach(barcode => {
                     if (!itemsFound.includes(barcode.rawValue)) {
                         itemsFound.push(barcode.rawValue);
                         const li = document.createElement('li');
@@ -38,26 +88,21 @@ async function detect() {
 
                             console.log(data)
                             document
-                                .querySelector('.wrapper')
+                                .querySelector('.scanner')
                                 .insertAdjacentHTML('afterbegin', markup)
                         })
                     }
                 });
-            })
-            .catch(console.error);
-    }
+    }, 1000)
+})();
 
-    (function renderLoop() {
-        requestAnimationFrame(renderLoop);
-        render();
-    })();
-}
+
 
 
 // button scanner 
 let buttonScanner = document.getElementById('scan')
-buttonScanner.addEventListener('click', function () { 
- changeDisplay()
+buttonScanner.addEventListener('click', function () {
+    changeDisplay()
 
 })
 
