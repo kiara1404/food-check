@@ -6,10 +6,10 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
 }
+
 /* header  */
 header {
-    min-height: 250px;
-    height: 45vh;
+    height: 5vh;
     text-align: center;
     padding: 10px;
 
@@ -32,30 +32,29 @@ header a span {
     padding: 5px 10px;
     border-radius: 10px;
 }
+/* einde header */
 
-header div {
+
+/* main */
+main section {
     width: 100vw;
     height: 250px;
     overflow: hidden;
-    margin: 10px 0 0 -10px;
+    margin: 10px 0 0 0;
     padding: 0 0 -10px;
 }
 
-header div img{
+main section img{
     object-fit: scale-down;
     width: 100vw;
 }
-
-/* einde header */
-
-/* main */
 
 .wrapper {
     position: relative;
     text-align: center  ;
 }
 
-.wrapper section:first-child{
+.wrapper section:nth-child(2){
     width: 100vw;
     min-width: 200px;
     display: flex;
@@ -65,7 +64,7 @@ header div img{
     visibility: hidden;
 }
 
-.wrapper section:first-child i{
+.wrapper section:nth-child(2) i{
     background-color: #fff;
     color: rgb(91, 187, 131);
     padding: 50px;
@@ -74,7 +73,7 @@ header div img{
     box-shadow: 4px 2px 9px 0px  rgb(68, 145, 100);
 }
 
-.wrapper section:nth-child(2) {
+.wrapper section:nth-child(3) {
     margin-top: 70px;
     width: 100vw;   
     display: flex;
@@ -83,7 +82,7 @@ header div img{
 
 }
 
-.wrapper section:nth-child(2) h2 {
+.wrapper section:nth-child(3) h2 {
     width: 250px;
     height: 30px;
     font-size: 1.5em;
@@ -97,6 +96,18 @@ svg{
     width: 50px;
     height: 30px;
     margin: 0 10px;
+}
+
+.scanner {
+    display: none;
+}
+
+.active{
+    display: block ;
+}
+
+.deactive {
+    display: none;
 }
 
 /* einde main */
