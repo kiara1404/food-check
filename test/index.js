@@ -38,3 +38,5 @@ async function detect() {
             render();
         })();
     }
+
+// src : https://daily-dev-tips.com/posts/detecting-barcodes-from-the-webcam/
