@@ -28,7 +28,7 @@
                 let newBarcode = barcode.rawValue
                 const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + newBarcode + '.json';
                 fetchData(API_URL).then(data => {
-                    const markup = `
+                    const markup = `8718452498246
                             <h1>
                             ${data.product['brands']}
                             </h1>
