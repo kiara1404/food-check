@@ -1,4 +1,5 @@
 import { barcodeDetector } from './barcodeDetector.js';
+import { loader } from './loadingState.js';
 
 export const videoEl = document.querySelector('video')
 export async function startScanner() {
@@ -22,10 +23,3 @@ export async function startScanner() {
 
 }
 
-function loader() {
-    const spinner = document.querySelector('.loading')
-    const state = document.readyState
-    if (state == 'complete') {
-        spinner.style.display = 'none'
-    }
-}
