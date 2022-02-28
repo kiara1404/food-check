@@ -1,34 +1,38 @@
+const videoEl = document.querySelector('video')
 
-(async () => {
-    // addeventlistener (knop) vraag toestemming om camera te gebruiken
-
-    // access camera
-    const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-            facingMode: {
-                ideal: "environment"
-            }
-        },
-        audio: false
-    });
-    const list = document.getElementById('barcode-list');
-    let itemsFound = [];
-
-    // video block ( feedback voor gebruiker)
-    const videoEl = document.querySelector("video");
-    videoEl.srcObject = stream;
-    await videoEl.play();
-
+//new barcode detector
+async function barcodeDetector() {
     const barcodeDetector = new BarcodeDetector();
     window.setInterval(async () => {
         const barcodes = await barcodeDetector.detect(videoEl);
-        barcodes.forEach(barcode => {
-            if (!itemsFound.includes(barcode.rawValue)) {
-                itemsFound.push(barcode.rawValue);
-                let newBarcode = barcode.rawValue
-                const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + newBarcode + '.json';
-                fetchData(API_URL).then(data => {
-                    const markup = `8718452498246
+        console.log('new barcode detector')
+
+        // stukje code van joeri geplakt, nog even vragen hoe dit zit
+        if (barcodes.length <= 0) {
+            return;
+        } else {
+            console.log("geslaagd")
+            getProduct(barcodes[0].rawValue)
+        }
+
+    }, 1000)
+}
+
+//get product info from barcode
+function getProduct(barcode) {
+    const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + barcode + '.json';
+
+    fetchData(API_URL)
+        .then(data => {
+            renderData(data)
+        })
+}
+
+
+// render data from food api
+function renderData(data) {
+
+    const markup = `
                             <h1>
                             ${data.product['brands']}
                             </h1>
@@ -46,25 +50,45 @@
                             
                             <button> Bewaren </button>`
 
-                    console.log(data)
-                    document
-                        .querySelector('.wrapper')
-                        .insertAdjacentHTML('afterbegin', markup)
-                })
-            }
-        });
-    }, 1000)
-})();
-
+    console.log(data)
+    document
+        .querySelector('.wrapper')
+        .insertAdjacentHTML('afterbegin', markup)
+}
 
 
 
 // button scanner 
-let buttonScanner = document.getElementById('scan')
-buttonScanner.addEventListener('click', function () {
+let scanButton = document.getElementById('scan')
+scanButton.addEventListener('click', function () {
     changeDisplay()
-
+    startScanner()
 })
+
+// make sure camera doesnt turn on before clicked on btn
+let startScanButton = document.querySelector('.scanner')
+
+startScanButton.addEventListener('click', function () {
+    startScanner()
+})
+
+async function startScanner() {
+    // access camera
+    const stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: {
+                ideal: "environment"
+            }
+        },
+        audio: false
+    });
+
+    // video block ( feedback voor gebruiker)
+    videoEl.srcObject = stream;
+    await videoEl.play();
+    barcodeDetector()
+    console.log('video gaat goed')
+}
 
 // fetch data
 async function fetchData(url) {
