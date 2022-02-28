@@ -33,5 +33,5 @@ This project also uses the [World Open Food Facts API](https://world.openfoodfac
 <!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
 
 ### License ©
-MIT License
+[MIT License](https://github.com/kiara1404/web-app-from-scratch-2122/blob/main/LICENSE)
 <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
