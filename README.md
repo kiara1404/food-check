@@ -1,19 +1,31 @@
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
+### Description
 <!-- ☝️ replace this description with a description of your own work -->
+This project is a single page application in vanilla JavaScript that allows you to scan products and get their nutritional values and scores.
 
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
-
+### Live Demo
 <!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
 
-<!-- Maybe a table of contents here? 📚 -->
+### Installation ⚙️
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+#### Clone this repository
+`git clone https://github.com/kiara1404/web-app-from-scratch-2122`
+
+#### Install packages
+`npm install`
+
+#### Run de applicatie
+`npm start`
 
 <!-- ...but how does one use this project? What are its features 🤔 -->
 
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
+### API
+#### Barcode Detection API
+This projects uses the [Barcode Detection API](https://developer.mozilla.org/en-US/docs/Web/API/Barcode_Detection_API).
 
+#### Open Food Facts API
+This project also uses the [World Open Food Facts API](https://world.openfoodfacts.org/data)
 <!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
 
+### License ©
+MIT License
 <!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
