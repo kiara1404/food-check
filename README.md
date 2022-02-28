@@ -8,13 +8,19 @@ This project is a single page application in vanilla JavaScript that allows you 
 ### Installation ⚙️
 
 #### Clone this repository
-`git clone https://github.com/kiara1404/web-app-from-scratch-2122`
+```
+git clone https://github.com/kiara1404/web-app-from-scratch-2122
+```
 
 #### Install packages
-`npm install`
+```
+npm install
+```
 
-#### Run de applicatie
-`npm start`
+#### Run the application
+```
+npm start
+```
 
 <!-- ...but how does one use this project? What are its features 🤔 -->
 
