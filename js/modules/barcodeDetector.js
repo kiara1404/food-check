@@ -6,6 +6,7 @@ export async function barcodeDetector() {
     const barcodeDetector = new BarcodeDetector();
     window.setInterval(async () => {
         const barcodes = await barcodeDetector.detect(videoEl);
+        console.log(document.readyState);
         console.log('new barcode detector')
 
         // stukje code van joeri geplakt, nog even vragen hoe dit zit
@@ -14,7 +15,9 @@ export async function barcodeDetector() {
         } else {
             console.log("geslaagd")
             getProduct(barcodes[0].rawValue)
+            
         }
 
     }, 1000)
 }
+

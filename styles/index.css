@@ -182,5 +182,29 @@ font-size: 1.2em;
 font-weight: 100;
 letter-spacing: 1px;
 }
+
+.loading {
+    display: flex;
+    justify-content: center;
+}
+
+.loading::after {
+    content: '';
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 15px solid rgba(255, 255, 255, 0.75);
+    border-top-color: rgb(255, 65, 81); 
+    box-shadow: 2px 2px 15px 0px  rgb(90, 172, 124);
+    animation: load 1s ease infinite   ;
+}
+
+@keyframes load {
+    to {
+        transform: rotate(1turn);
+
+    }
+}
+
 /* einde main */
 
