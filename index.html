@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="icon" type="image/x-icon" href="./img/favicon.png">
     <script src="https://kit.fontawesome.com/048e0c164b.js" crossorigin="anonymous"></script>
+    <script src="./js/index.js" type="module"></script>
 
     <title>Single Page Web App</title>
 </head>
@@ -21,7 +22,7 @@
             <img src="./img/food.jpg">
         </section>
         <section class="btn-primary">
-            <a id="scan"><i class="fa-solid fa-barcode fa-2xl"></i></a>
+            <a id="scan" href="#scan"><i class="fa-solid fa-barcode fa-2xl"></i></a>
             <a id="search"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></a>
         </section>
 
@@ -43,7 +44,7 @@
 
         </section>
 
-        <section class="scanner">
+        <section class="scanner" data-route="scan">
             <video src=""></video>
             <div class="loading"></div>
         </section>
@@ -51,7 +52,7 @@
 
     </main>
     <footer></footer>
-    <script src="./js/index.js" type="module"></script>
+
 
 </body>
 
