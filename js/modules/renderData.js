@@ -7,7 +7,7 @@ export function renderData(data) {
 
     const markup = `    <section class="markup">
                             <h1>
-                            ${data.product['brands']}
+                            ${data.product.brands}
                             </h1>
                             <section class="img-wrapper">
                                 <img src="${data.product['image_front_url']}">
@@ -22,7 +22,7 @@ export function renderData(data) {
                             </ul>
                             
                             <button> Bewaren </button>
-                            <button  class="scan-other-product"> Scan ander product</button>
+                            <button  class="scan-other-product" href="#scan"> Scan ander product</button>
                         </section>`
 
 
@@ -31,6 +31,7 @@ export function renderData(data) {
         .querySelector('.wrapper')
         .insertAdjacentHTML('afterbegin', markup)
 
+    // knop werkend maken om ander product te scannen
     let scanOtherProductButton = document.querySelector('.scan-other-product')
     scanOtherProductButton.addEventListener('click', function () {
         deleteMarkup()

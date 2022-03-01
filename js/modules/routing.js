@@ -1,18 +1,22 @@
 import './vendor/router.min.js';
-import { fetchData } from './fetchData.js';
+// import { barcodeDetector } from './barcodeDetector.js';
 import { renderData } from './renderData.js';
+import { getProduct } from './getProduct.js';
 
 export function handleRoutes() {
-  //  console.log('test')
+    //  console.log('test')
     routie(
         {
-            'scan': () => {
-                console.log('test')
-                // fetchData().then(data => {
-                //     renderData(data)
+         //   'scan'://   barcodeDetector(),
 
-                // })
-            }
+            'products/:code': code => {
+            //    console.log(code)
+               getProduct(code).then(data => {
+                //   console.log(data)
+                   renderData(data, code)
+               })
+            }   
+
+            })
         }
-    )
-}
+

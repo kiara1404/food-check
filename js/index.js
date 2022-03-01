@@ -3,6 +3,7 @@ import { handleRoutes } from './modules/routing.js';
 
 
 handleRoutes()
+
 // button scanner 
 let scanButton = document.getElementById('scan')
 scanButton.addEventListener('click', function () {

@@ -5,7 +5,7 @@ export const videoEl = document.querySelector('video')
 export async function startScanner() {
     
 
-    console.log(document.readyState);
+  //  console.log(document.readyState);
     // access camera
     const stream = await navigator.mediaDevices.getUserMedia({
         video: {
