@@ -13,12 +13,7 @@ export function getProduct(barcode) {
 
 
 
-    fetchData(API_URL)
-        .then(data => {
-            renderData(data)
-            stopScanner()
-        }
+   return fetchData(API_URL)
 
-        )
-}
+        }
 
