@@ -21,7 +21,7 @@ header a {
     width: 200px;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: 1.5em;
+    font-size: 2em;
     letter-spacing: 1px;
     text-decoration: none;
 }
@@ -37,7 +37,7 @@ header a span {
 
 
 /* main */
-main section {
+.image , .btn-primary {
     width: 100vw;
     height: 250px;
     overflow: hidden;
@@ -110,7 +110,7 @@ svg{
     height: 30px;
     margin: 0 10px;
 }
-.wrapper h1 {
+.markup h1 {
 
     text-transform: uppercase;
     color: #fff;
@@ -126,11 +126,11 @@ svg{
 
 }
 
-.wrapper ul {
+.markup ul {
     margin-top: 20px;
     font-size: 1em;
     color: #fff;
-    height: 30vh
+    height: 20vh
 
 }
 
@@ -181,6 +181,19 @@ color: rgb(91, 187, 131);
 font-size: 1.2em;
 font-weight: 100;
 letter-spacing: 1px;
+}
+
+.scan-other-product {
+padding: 20px;
+width: 90vw;
+background-color: rgb(91, 187, 131);
+border-radius: 20px;
+border: 2px solid #ffffff;
+color: #ffffff;
+font-size: 1.2em;
+font-weight: 100;
+letter-spacing: 1px;
+margin-top: 10px;
 }
 
 .loading {

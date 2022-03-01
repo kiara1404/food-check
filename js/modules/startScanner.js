@@ -3,6 +3,7 @@ import { loader } from './loadingState.js';
 
 export const videoEl = document.querySelector('video')
 export async function startScanner() {
+    
 
     console.log(document.readyState);
     // access camera
@@ -20,6 +21,7 @@ export async function startScanner() {
     await videoEl.play();
     loader()
     barcodeDetector()
+    
 
 }
 

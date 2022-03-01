@@ -1,7 +1,11 @@
+import { startScanner } from './startScanner.js'
+import { deleteMarkup } from './deleteMarkup.js'
+
+
 // render data from food api
 export function renderData(data) {
 
-    const markup = `
+    const markup = `    <section class="markup">
                             <h1>
                             ${data.product['brands']}
                             </h1>
@@ -17,10 +21,20 @@ export function renderData(data) {
                                 <li><span>Vet</span>${data.product['nutriments']['fat']}</li>
                             </ul>
                             
-                            <button> Bewaren </button>`
+                            <button> Bewaren </button>
+                            <button  class="scan-other-product"> Scan ander product</button>
+                        </section>`
+
 
     console.log(data)
     document
         .querySelector('.wrapper')
         .insertAdjacentHTML('afterbegin', markup)
+
+    let scanOtherProductButton = document.querySelector('.scan-other-product')
+    scanOtherProductButton.addEventListener('click', function () {
+        deleteMarkup()
+        startScanner()
+    })
 }
+

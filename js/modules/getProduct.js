@@ -1,5 +1,6 @@
 import { fetchData } from './fetchData.js';
 import { renderData } from './renderData.js';
+import { stopScanner } from './stopScanner.js';
 
 
 //get product info from barcode
@@ -8,6 +9,7 @@ export function getProduct(barcode) {
 
     fetchData(API_URL)
         .then(data => {
+            stopScanner()
             renderData(data)
         })
 }
