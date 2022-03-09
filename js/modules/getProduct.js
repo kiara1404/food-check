@@ -11,9 +11,6 @@ export function sendHash(barcode) {
 export function getProduct(barcode) {
     const API_URL = 'https://world.openfoodfacts.org/api/v0/product/' + barcode + '.json';
 
-
-
-   return fetchData(API_URL)
-
-        }
+    return fetchData(API_URL)
+}
 

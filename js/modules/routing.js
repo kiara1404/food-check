@@ -8,17 +8,17 @@ export function handleRoutes() {
     //  console.log('test')
     routie(
         {
-         //   'scan'://   barcodeDetector(),
+            //   'scan'://   barcodeDetector(),
 
             'products/:code': code => {
-            //    console.log(code)
-               getProduct(code).then(data => {
-                   console.log(data)
-                   renderData(data, code)
-                   stopScanner()
-               })
-            }   
+                //    console.log(code)
+                getProduct(code).then(data => {
+                    console.log(data)
+                    renderData(data, code)
+                    stopScanner()
+                })
+            }
 
-            })
-        }
+        })
+}
 

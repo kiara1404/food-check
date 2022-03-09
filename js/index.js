@@ -11,15 +11,6 @@ scanButton.addEventListener('click', function () {
     startScanner()
 })
 
-// make sure camera doesnt turn on before clicked on btn
-// function startScanButton(){
-// let startScanButton = document.querySelector('.scanner')
-// startScanButton.addEventListener('click', function () {
-//     startScanner()
-// })
-// }
-
-
 // change display in css -- niet de beste manier maar werkt voor nu --
 function changeDisplay() {
     let buttons = document.querySelector('.btn-primary')
@@ -32,9 +23,6 @@ function changeDisplay() {
     img.style.display = 'none';
     scanner.style.display = 'block'
 }
-
-
-
 
 
 // src : https://daily-dev-tips.com/posts/detecting-barcodes-from-the-webcam/
