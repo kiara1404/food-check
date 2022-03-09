@@ -4,7 +4,7 @@ import { getProduct } from './getProduct.js';
 import { stopScanner } from './stopScanner.js';
 import { updateUI } from './ui.js';
 import { startScanner } from './startScanner.js';
-import { verifyBarcode} from './verify.js'
+import { verifyBarcode } from './verify.js'
 
 export function handleRoutes() {
     //  console.log('test')
@@ -19,10 +19,13 @@ export function handleRoutes() {
                 getProduct(code).then(data => {
                     verifyBarcode(data)
                     stopScanner()
-                    updateUI('markup')
-                    renderData(data, code)
+                    renderData(data)
+                    updateUI('wrapper')
                     
                     
+
+
+
 
                 })
             }

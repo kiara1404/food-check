@@ -10,6 +10,7 @@ export function loadingState() {
 }
 
 export function productNotFound() {
+    console.log('testttt')
     const errorMarkup = `
     <h3> Product niet gevonden </h3>
     <p>Het product komt niet voor in de database.</p>
@@ -29,7 +30,7 @@ export function invalidCode(){
     <section class="btn-markup">
      <a  class="scan-product" href="#scan"> Scan product</a>
     </section>`
-    document.querySelector('.markup').insertAdjacentHTML("afterbegin", errorMarkup)
+    document.querySelector('.wrapper').insertAdjacentHTML("afterbegin", errorMarkup)
 }
 
 // bron:  http://jsfiddle.net/p8h4an1g/1/

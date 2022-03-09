@@ -1,6 +1,7 @@
 
 // render data from food api
 export function renderData(data) {
+
         const markup = `    
                             <h1>
                             ${data.product.brands}
@@ -23,6 +24,7 @@ export function renderData(data) {
 
 
         console.log(data)
+        
         document
             .querySelector('.markup')
             .insertAdjacentHTML('afterbegin', markup)
