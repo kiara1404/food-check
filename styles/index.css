@@ -49,7 +49,7 @@ header a span {
     padding: 0 0 -10px;
 }
 
-main section:first-child img{
+main section:first-child > img{
     object-fit: scale-down;
     width: 100vw;
 }
@@ -152,20 +152,21 @@ ul li span {
     margin-right: 30px;
 }
 
-.img-wrapper {
+.img-markup {
     display: block;
     height: 40vh;
-    margin-top: 10px;
-
-    
+    width: 100vw;
+    overflow: hidden;
+    margin-top: 10px;   
 }
 
-.img-wrapper img {
-    object-fit: cover;
+.img-markup img {
+    object-fit: fill;
+    width: 100vw;
 
 }
 
-button {
+.btn-markup a:first-child {
 padding: 20px;
 width: 90vw;
 background-color: rgb(255, 255, 255);
@@ -174,10 +175,12 @@ border: none;
 color: rgb(91, 187, 131);
 font-size: 1.2em;
 font-weight: 100;
+display: block;
 letter-spacing: 1px;
+margin: 10px auto;
 }
 
-.scan-other-product {
+.btn-markup .scan-product {
 padding: 20px;
 width: 90vw;
 background-color: rgb(91, 187, 131);
@@ -188,6 +191,8 @@ font-size: 1.2em;
 font-weight: 100;
 letter-spacing: 1px;
 margin-top: 10px;
+display: block;
+margin: 0 auto;
 }
 
 

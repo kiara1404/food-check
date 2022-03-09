@@ -8,7 +8,7 @@ handleRoutes()
 
 // button scanner 
 export function scanButton(){
-let scanButton = document.getElementById('scan')
+let scanButton = document.querySelector('.scan-product')
 scanButton.addEventListener('click',  () => {
 
    // changeDisplay()
