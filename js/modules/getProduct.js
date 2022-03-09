@@ -1,7 +1,10 @@
 import { fetchData } from './fetchData.js';
 
+
+
 export function sendHash(barcode) {
     window.location.hash = 'products/' + barcode;
+    console.log(barcode)
 }
 
 //get product info from barcode
@@ -10,4 +13,3 @@ export function getProduct(barcode) {
 
     return fetchData(API_URL)
 }
-

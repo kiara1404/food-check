@@ -1,5 +1,5 @@
 import { barcodeDetector } from './barcodeDetector.js';
-import { state } from './states.js'
+import { loadingState } from './states.js'
 
 export const videoEl = document.querySelector('video')
 export async function startScanner() {
@@ -19,7 +19,7 @@ export async function startScanner() {
     // video block ( feedback voor gebruiker)
     videoEl.srcObject = stream;
     await videoEl.play();
-    state()
+    loadingState()
     barcodeDetector()
 
 

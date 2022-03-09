@@ -111,6 +111,9 @@ svg{
     height: 30px;
     margin: 0 10px;
 }
+.markup{
+    display: block;
+}
 .markup h1 {
 
     text-transform: uppercase;
@@ -180,7 +183,7 @@ letter-spacing: 1px;
 margin: 10px auto;
 }
 
-.btn-markup .scan-product {
+.btn-markup .scan-product  {
 padding: 20px;
 width: 90vw;
 background-color: rgb(91, 187, 131);
@@ -195,7 +198,16 @@ display: block;
 margin: 0 auto;
 }
 
+.markup h3 {
+    margin: 20px;
+    font-size: 1.5em;
+    color: #fff;
+}
 
+.markup p{
+    color: #fff;
+    margin-bottom: 50px;
+}
 /* ===========================================
                     LOADER 
     =========================================== */ 

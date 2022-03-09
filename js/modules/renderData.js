@@ -1,11 +1,7 @@
-import { startScanner } from './startScanner.js'
-import { deleteMarkup } from './deleteMarkup.js'
-
 
 // render data from food api
 export function renderData(data) {
-
-    const markup = `    
+        const markup = `    
                             <h1>
                             ${data.product.brands}
                             </h1>
@@ -26,8 +22,10 @@ export function renderData(data) {
                             </section>`
 
 
-    console.log(data)
-    document
-        .querySelector('.markup')
-        .insertAdjacentHTML('afterbegin', markup)
-}
+        console.log(data)
+        document
+            .querySelector('.markup')
+            .insertAdjacentHTML('afterbegin', markup)
+    }
+
+
