@@ -1,21 +1,31 @@
 import './vendor/router.min.js';
-// import { barcodeDetector } from './barcodeDetector.js';
-import { renderData } from './renderData.js';
+import { renderData, scanOtherProduct } from './renderData.js';
 import { getProduct } from './getProduct.js';
 import { stopScanner } from './stopScanner.js';
+import { scanButton } from '../index.js'
+import { deleteMarkup } from './deleteMarkup.js';
+import { updateUI } from './ui.js';
+import { startScanner } from './startScanner.js';
+import { state } from './states.js';
 
 export function handleRoutes() {
     //  console.log('test')
     routie(
         {
-            //   'scan'://   barcodeDetector(),
+            'scan': () => {
+
+                updateUI('scanner')
+                startScanner()
+
+                //scanOtherProduct()
+
+            },
 
             'products/:code': code => {
-                //    console.log(code)
                 getProduct(code).then(data => {
-                    console.log(data)
                     renderData(data, code)
                     stopScanner()
+
                 })
             }
 

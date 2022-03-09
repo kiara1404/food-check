@@ -30,12 +30,16 @@ export function renderData(data) {
     document
         .querySelector('.wrapper')
         .insertAdjacentHTML('afterbegin', markup)
+}
 
-    // knop werkend maken om ander product te scannen
+
+// knop werkend maken om ander product te scannen
+export function scanOtherProduct() {
     let scanOtherProductButton = document.querySelector('.scan-other-product')
     scanOtherProductButton.addEventListener('click', function () {
+        // om hash te clearen van product code
+        window.location.hash = 'scan'
         deleteMarkup()
         startScanner()
     })
 }
-

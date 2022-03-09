@@ -4,12 +4,18 @@ import { handleRoutes } from './modules/routing.js';
 
 handleRoutes()
 
+
+
 // button scanner 
+export function scanButton(){
 let scanButton = document.getElementById('scan')
-scanButton.addEventListener('click', function () {
-    changeDisplay()
+scanButton.addEventListener('click',  () => {
+
+   // changeDisplay()
     startScanner()
+    
 })
+}
 
 // change display in css -- niet de beste manier maar werkt voor nu --
 function changeDisplay() {

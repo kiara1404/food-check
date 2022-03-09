@@ -1,4 +1,4 @@
-import {spinner } from './loadingState.js'
+import {spinner } from './states.js'
 
 export function deleteMarkup() {
     const markup = document.querySelector('.markup')

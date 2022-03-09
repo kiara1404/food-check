@@ -1,9 +1,11 @@
 export const spinner = document.querySelector('.loading')
 
-export function loader() {
+export function state() {
+
     const state = document.readyState
-    if (state == 'complete') {
-        spinner.style.display = 'none'
+    console.log(state)
+    if (state === 'complete') {
+        spinner.classList.add('hide')
     }
 }
 

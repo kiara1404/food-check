@@ -18,33 +18,36 @@
     </header>
 
     <main class="wrapper">
-        <section class="image">
-            <img src="./img/food.jpg">
+        <section data-route="#" class="active start">
+            <section class="image">
+                <img src="./img/food.jpg">
+            </section>
+            <section class="btn-primary">
+                <a id="scan" href="#scan"><i class="fa-solid fa-barcode fa-2xl"></i></a>
+                <a id="search"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></a>
+            </section>
+
+
+            <section class="products" data-route="opgeslagen">
+                <header>
+                    <svg>
+                        <line x1="0" y1="13" x2="100" y2="13" stroke="white" stroke-width="3%" />
+                    </svg>
+                    <h2>Mijn producten</h2>
+                    <svg>
+                        <line x1="0" y1="13" x2="100" y2="13" stroke="white" stroke-width="3%" />
+                    </svg>
+                </header>
+
+                <article>
+                    <p> Je hebt nog geen producten opgeslagen...</p>
+                    <p>Scan snel een product om deze te kunnen opslaan!</p>
+                </article>
+
+            </section>
         </section>
-        <section class="btn-primary">
-            <a id="scan" href="#scan"><i class="fa-solid fa-barcode fa-2xl"></i></a>
-            <a id="search"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></a>
-        </section>
 
-        <section class="products">
-            <header>
-                <svg>
-                    <line x1="0" y1="13" x2="100" y2="13" stroke="white" stroke-width="3%" />
-                </svg>
-                <h2>Mijn producten</h2>
-                <svg>
-                    <line x1="0" y1="13" x2="100" y2="13" stroke="white" stroke-width="3%" />
-                </svg>
-            </header>
-
-            <article>
-                <p> Je hebt nog geen producten opgeslagen...</p>
-                <p>Scan snel een product om deze te kunnen opslaan!</p>
-            </article>
-
-        </section>
-
-        <section class="scanner">
+        <section class="scanner" data-route="scanner">
             <video src=""></video>
             <div class="loading"></div>
         </section>

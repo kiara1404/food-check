@@ -1,7 +1,4 @@
 import { fetchData } from './fetchData.js';
-import { renderData } from './renderData.js';
-import { stopScanner } from './stopScanner.js';
-
 
 export function sendHash(barcode) {
     window.location.hash = 'products/' + barcode;

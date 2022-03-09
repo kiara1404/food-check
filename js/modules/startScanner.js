@@ -1,11 +1,11 @@
 import { barcodeDetector } from './barcodeDetector.js';
-import { loader } from './loadingState.js';
+import { state } from './states.js'
 
 export const videoEl = document.querySelector('video')
 export async function startScanner() {
-    
 
-  //  console.log(document.readyState);
+
+    //  console.log(document.readyState);
     // access camera
     const stream = await navigator.mediaDevices.getUserMedia({
         video: {
@@ -19,9 +19,9 @@ export async function startScanner() {
     // video block ( feedback voor gebruiker)
     videoEl.srcObject = stream;
     await videoEl.play();
-    loader()
+    state()
     barcodeDetector()
-    
+
 
 }
 
