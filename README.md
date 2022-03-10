@@ -3,7 +3,7 @@
 This project is a single page application in vanilla JavaScript that allows you to scan products and get their nutritional values and scores.
 
 ### Live Demo
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
+![](https://github.com/kiara1404/food-check/blob/main/img/ezgif.com-gif-maker.gif?raw=true)
 
 ### Installation ⚙️
 
